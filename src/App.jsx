@@ -1,11 +1,15 @@
+import Header from "./components/Header";
+import SectionBanner from "./components/SectionBanner";
+
 const App = () => {
   return (
-<>
-<Header/>
-
-</>       
- );
- 
+    <>
+      <Header />
+      <SectionBanner />
+      
+    </>
+    
+  );
 }
- 
+
 export default App;
