@@ -1,12 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
+@theme{
+    --color-rosa: #C92071;
+    --color-rosa-hover: #B5B6F2;
+    --color-azul: #4200FF;
+    --color-grafite: #474747;
+    --color-amarelo: #F6AA1C;
+    --color-cinza-claro: #CCCCCC;
+
+
+
+}
+
 
 * {
-    margin: 0;
+    /* margin: 0;
     padding: 0;
     border: 0;
-    outline: 0;
+    outline: 0; */
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
     text-decoration: none;
