@@ -6,15 +6,34 @@ const Produtos = () => {
     const [filtroCategoria, setFiltroCategoria] = useState([]);
     const [filtroGenero, setFiltroGenero] = useState([]);
     const [filtroEstado, setFiltroEstado] = useState("Novo");
+    const [produtos, setProdutos] = useState([]);
 
 
-    console.log(filtroMarca);
+    console.log(filtroCategoria);
 
     function verificarMarca(marca){
         if(filtroMarca.includes(marca)){
             setFiltroMarca([...filtroMarca.filter(cadaMarca => cadaMarca !== marca)]);
         }else{
             setFiltroMarca([...filtroMarca, marca]);
+        }
+    }
+
+    console.log(filtroCategoria);
+
+    function verificarCategoria(categoria){
+        if(filtroCategoria.includes(categoria)){
+            setFiltroCategoria([...filtroCategoria.filter(cadaCategoria => cadaCategoria !== categoria)]);
+        }else{
+            setFiltroCategoria([...filtroCategoria, categoria]);
+        }
+    }
+
+    function verificarGenero(genero){
+        if(filtroGenero.includes(genero)){
+            setFiltroGenero([...filtroGenero.filter(cadaGenero => cadaGenero !== genero)]);
+        }else{
+            setFiltroGenero([...filtroGenero, genero]);
         }
     }
 
@@ -68,19 +87,19 @@ const Produtos = () => {
                         <h6 className="mb-[10px] font-bold text-grafite">Categoria</h6>
                         <div className="grid gap-[10px]">
                             <label className="flex gap-[10px] items-center">
-                                <input className="w-[22px] h-[22px] accent-rosa" type="checkbox" />
+                                <input className="w-[22px] h-[22px] accent-rosa" type="checkbox" onChange={() => verificarCategoria("Esporte e Lazer")}/>
                                 Esporte e Lazer
                             </label>
                             <label className="flex gap-[10px] items-center">
-                                <input className="w-[22px] h-[22px] accent-rosa" type="checkbox" />
+                                <input className="w-[22px] h-[22px] accent-rosa" type="checkbox" onChange={() => verificarCategoria("Casual")}/>
                                 Casual
                             </label>
                             <label className="flex gap-[10px] items-center">
-                                <input className="w-[22px] h-[22px] accent-rosa" type="checkbox" />
+                                <input className="w-[22px] h-[22px] accent-rosa" type="checkbox" onChange={() => verificarCategoria("Utilitário")}/>
                                 Utilitário
                             </label>
                             <label className="flex gap-[10px] items-center">
-                                <input className="w-[22px] h-[22px] accent-rosa" type="checkbox" />
+                                <input className="w-[22px] h-[22px] accent-rosa" type="checkbox" onChange={() => verificarCategoria("Corrida")} />
                                 Corrida
                             </label>
                         </div>
@@ -104,11 +123,11 @@ const Produtos = () => {
                         <h6 className="mb-[10px] font-bold text-grafite">Estado</h6>
                         <div className="grid gap-[10px]">
                             <label className="flex gap-[10px] items-center">
-                                <input className="w-[22px] h-[22px] accent-rosa" type="radio" />
+                                <input className="w-[22px] h-[22px] accent-rosa" type="radio" name="condicao" value={"novo"} />
                                 Novo
                             </label>
                             <label className="flex gap-[10px] items-center">
-                                <input className="w-[22px] h-[22px] accent-rosa" type="radio" />
+                                <input className="w-[22px] h-[22px] accent-rosa" type="radio" name="condicao" value={"usado"} />
                                 Usado
                             </label>
 
