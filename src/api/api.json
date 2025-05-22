@@ -29,6 +29,16 @@
             "genero": "Feminino",
             "estado": "Novo",
             "desconto": 0
+        },
+        {
+            "id": 4,
+            "nome": "Sapato Adidas",
+            "marca": "Adidas",
+            "categoria": "Corrida",
+            "preco": 400,
+            "genero": "Masculino",
+            "estado": "Novo",
+            "desconto": 15
         }
     ]
 }
