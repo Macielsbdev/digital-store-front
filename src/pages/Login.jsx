@@ -1,17 +1,42 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { LoginContext } from "../contexts/LoginContext";
 import { useNavigate } from "react-router";
+import { AXIOS } from "../services";
 
 const Login = () => {
 
 
-const {setLogado} = useContext(LoginContext);
+const { setLogado } = useContext(LoginContext);
 const navigate = useNavigate()
 
-    function onLogin(event){
+const emailRef = useRef();
+const senhaRef = useRef();
+
+
+    async function onLogin(event){
     event.preventDefault();
+    let dados = {
+        usuario_email: emailRef.current.value,
+        usuario_senha: senhaRef.current.value
+    }
+
+const request = await AXIOS.post("/login", dados);
+if(request.data.token){
+    sessionStorage.setItem("token", request.data.token);
+    sessionStorage.setItem("usuario", JSON.stringify(request.data.usuario));
     setLogado(true);
     navigate("/");
+    return;
+}
+
+alert(request.data.mensagem);
+
+
+
+
+
+    // setLogado(true);
+    // navigate("/");
 }
 
     return (
@@ -25,6 +50,7 @@ const navigate = useNavigate()
 
                     <label className="block mb-1">Login *</label>
                     <input
+                        ref={emailRef}
                         type="text"
                         placeholder="Insira seu login ou email"
                         className="bg-grafite/5 rounded w-full mb-[30px] h-[60px] duration-150 outline-transparent focus:outline-rosa pl-4" 
@@ -33,6 +59,7 @@ const navigate = useNavigate()
                     />
                     <label className="block mb-1">Senha *</label>
                     <input
+                        ref={senhaRef}                   
                         type="password"
                         placeholder="Insira sua senha"
                         className="bg-grafite/5 rounded w-full mb-[30px] h-[60px] duration-150 outline-transparent focus:outline-rosa pl-4" 
