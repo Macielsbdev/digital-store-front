@@ -5,7 +5,6 @@ import { NavLink } from "react-router";
 import { useContext } from "react";
 import { LoginContext } from "../contexts/LoginContext";
 
-
 const Header = () => {
 
     const { logado, usuario } = useContext(LoginContext);
@@ -27,13 +26,11 @@ const Header = () => {
                             <h3>{usuario.usuario_nome}</h3>
                         ) : (
                             <>
-                            <a href="">Cadastre-se</a>
-                            <a href="/auth" className="btn">Entrar</a>
-                            
+                                <a href="">Cadastre-se</a>
+                                <a href="/auth" className="btn">Entrar</a>
                             </>
                         )
                     }
-
                     <div className="carrinho">
                         <img src={carrinho} alt="carrinho" />
                         <span>2</span>
@@ -42,21 +39,13 @@ const Header = () => {
             </div>
             <nav>
                 <NavLink to="/">Home</NavLink>
-                <NavLink to="/Produtos">Produtos</NavLink>
-                <NavLink to="/Categorias">Categorias</NavLink>
+                <NavLink to="/produtos">Produtos</NavLink>
+                <NavLink to="/categorias">Categorias</NavLink>
                 {
-
                     logado && (
-
-                        <NavLink to="/Meus-pedidos">Meus Pedidos</NavLink>
+                        <NavLink to="/meus-pedidos">Meus Pedidos</NavLink>
                     )
                 }
-
-
-                {/* <a href="/" className="active">Home</a>
-                <a href="/produtos">Produtos</a>
-                <a href="/categorias">Categorias</a>
-                <a href="/meus-pedidos">Meus Pedidos</a> */}
             </nav>
         </header>
     );
